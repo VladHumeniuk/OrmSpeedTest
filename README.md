@@ -16,3 +16,5 @@
 [2]: https://bitbucket.org/littlerobots/cupboard
 [3]: https://bitbucket.org/txdrive/electra
 [4]: https://github.com/Raizlabs/DBFlow
+
+you can create pull request for new ORMs, or fixes or new results.
