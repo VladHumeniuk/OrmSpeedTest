@@ -3,7 +3,7 @@
 * [Electra 1.0.0][3]
 * [DBFlow 3.0.1][4]
 
-###LG G3 856(5.0.1) Results(ms, avg of 3) (less is better)
+###LG G3 856(5.0.1) Results(ms, avg of 3)
 
 |           | Create 1K | Create 10K | Create Bulk 1K | Create Bulk 10K | Create Bulk 50k | Read 1K | Read 10K | Read 50k |
 |-----------|-----------|------------|----------------|-----------------|-----------------|---------|----------|----------|
