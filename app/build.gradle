@@ -1,0 +1,73 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.2'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    }
+}
+
+
+
+
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+
+apply plugin: 'com.android.application'
+
+def dbflow_version = "3.0.1"
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+
+    defaultConfig {
+        applicationId "orm.test.ormtest"
+        minSdkVersion 15
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'io.reactivex:rxandroid:1.2.0'
+    compile 'org.greenrobot:eventbus:3.0.0'
+
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+
+    compile 'com.jakewharton:butterknife:8.1.0'
+    apt 'com.jakewharton:butterknife-compiler:8.1.0'
+
+    //db flow
+    apt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow-core:${dbflow_version}"
+    compile "com.github.Raizlabs.DBFlow:dbflow:${dbflow_version}"
+
+    //cupboard
+    compile 'nl.qbusict:cupboard:2.1.4'
+
+    //electra
+    compile 'org.bitbucket.txdrive:electra:1.0.0'
+    apt 'org.bitbucket.txdrive:electra-compiler:1.0.0'
+
+    //green dao
+    compile 'org.greenrobot:greendao:2.2.1'
+    apt 'org.greenrobot:greendao-generator:2.2.0'
+
+    //requery
+    compile 'io.requery:requery:1.0.0-beta22'
+    compile 'io.requery:requery-android:1.0.0-beta22'
+    apt 'io.requery:requery-processor:1.0.0-beta22'
+}
