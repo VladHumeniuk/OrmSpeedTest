@@ -40,4 +40,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cipher+Electra"/>
+
+    <Button
+        android:id="@+id/realm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Realm"/>
 </LinearLayout>

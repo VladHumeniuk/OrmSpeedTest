@@ -7,6 +7,7 @@ import orm.test.ormtest.core.cipherWithElectra.CipherElectraFactory;
 import orm.test.ormtest.core.cupboard.CupboardFactory;
 import orm.test.ormtest.core.dbflow.DBFlowFactory;
 import orm.test.ormtest.core.electra.ElectraFactory;
+import orm.test.ormtest.core.realm.RealmFactory;
 import orm.test.ormtest.core.requery.RequeryFactory;
 
 abstract public class AbstractOrmTestFactory {
@@ -15,6 +16,7 @@ abstract public class AbstractOrmTestFactory {
 	public static final int CUPBOARD = 2;
 	public static final int REQUERY = 3;
 	public static final int CIPHER_ELECTRA = 4;
+	public static final int REALM = 5;
 
 	protected Context context;
 
@@ -46,6 +48,10 @@ abstract public class AbstractOrmTestFactory {
 			}
 			case CIPHER_ELECTRA: {
 				factory = new CipherElectraFactory(context);
+				break;
+			}
+			case REALM: {
+				factory = new RealmFactory(context);
 				break;
 			}
 		}
