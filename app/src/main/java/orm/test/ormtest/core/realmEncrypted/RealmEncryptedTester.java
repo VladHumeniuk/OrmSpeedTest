@@ -1,20 +1,22 @@
-package orm.test.ormtest.core.realm;
+package orm.test.ormtest.core.realmEncrypted;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import orm.test.ormtest.core.BaseOrmTester;
+import orm.test.ormtest.core.realm.RealmBean;
 
-public class RealmTester extends BaseOrmTester {
+public class RealmEncryptedTester extends BaseOrmTester {
 
     private RealmConfiguration configuration;
 
-    public RealmTester(Context context) {
+    public RealmEncryptedTester(Context context) {
 
         super(context);
     }
@@ -22,8 +24,12 @@ public class RealmTester extends BaseOrmTester {
     @Override
     public void setup() {
         Realm.init(context);
-        configuration = new RealmConfiguration.Builder().name("electra.realm")
-                                                                           .build();
+        SecureRandom random = new SecureRandom();
+        byte[] key = new byte[64];
+        random.nextBytes(key);
+        configuration = new RealmConfiguration.Builder().name("electraencrypted.realm")
+                                                        .encryptionKey(key)
+                                                        .build();
     }
 
     @NonNull

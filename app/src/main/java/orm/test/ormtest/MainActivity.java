@@ -49,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
         startActivityForTest(AbstractOrmTestFactory.REALM);
     }
 
+    @OnClick(R.id.realm_encrypted)
+    public void realmEncrypted(View view){
+        startActivityForTest(AbstractOrmTestFactory.REALM_ENCRYPTED);
+    }
+
 	private void startActivityForTest(int type) {
 		Intent intent = new Intent(this, TestActivity.class);
 		intent.putExtra(TestActivity.KEY_ORM, type);
