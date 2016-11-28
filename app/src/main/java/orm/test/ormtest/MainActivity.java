@@ -39,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
 		startActivityForTest(AbstractOrmTestFactory.REQUERY);
 	}
 
+	@OnClick(R.id.cipher_electra)
+	public void cipherElectra(View view){
+        startActivityForTest(AbstractOrmTestFactory.CIPHER_ELECTRA);
+	}
+
 	private void startActivityForTest(int type) {
 		Intent intent = new Intent(this, TestActivity.class);
 		intent.putExtra(TestActivity.KEY_ORM, type);
