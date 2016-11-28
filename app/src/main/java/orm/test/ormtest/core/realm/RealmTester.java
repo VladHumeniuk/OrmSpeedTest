@@ -65,6 +65,7 @@ public class RealmTester extends BaseOrmTester {
             realm.commitTransaction();
         }
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 
@@ -81,6 +82,7 @@ public class RealmTester extends BaseOrmTester {
         realm.copyToRealm(data);
         realm.commitTransaction();
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 
@@ -93,7 +95,9 @@ public class RealmTester extends BaseOrmTester {
         long time = System.currentTimeMillis();
 
         List<RealmBean> list = realm.where(RealmBean.class).findAll();
+        list.get(records - 1);
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 

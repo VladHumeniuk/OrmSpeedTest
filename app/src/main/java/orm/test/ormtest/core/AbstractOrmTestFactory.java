@@ -3,6 +3,7 @@ package orm.test.ormtest.core;
 
 import android.content.Context;
 
+import orm.test.ormtest.core.cipher.CipherFactory;
 import orm.test.ormtest.core.cipherWithElectra.CipherElectraFactory;
 import orm.test.ormtest.core.cupboard.CupboardFactory;
 import orm.test.ormtest.core.dbflow.DBFlowFactory;
@@ -19,6 +20,7 @@ abstract public class AbstractOrmTestFactory {
 	public static final int CIPHER_ELECTRA = 4;
 	public static final int REALM = 5;
 	public static final int REALM_ENCRYPTED = 6;
+	public static final int CIPHER = 7;
 
 	protected Context context;
 
@@ -58,6 +60,10 @@ abstract public class AbstractOrmTestFactory {
 			}
 			case REALM_ENCRYPTED: {
 				factory = new RealmEncryptedFactory(context);
+				break;
+			}
+			case CIPHER: {
+				factory = new CipherFactory(context);
 				break;
 			}
 		}

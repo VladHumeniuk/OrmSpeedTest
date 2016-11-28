@@ -27,7 +27,7 @@ public class RealmEncryptedTester extends BaseOrmTester {
         SecureRandom random = new SecureRandom();
         byte[] key = new byte[64];
         random.nextBytes(key);
-        configuration = new RealmConfiguration.Builder().name("electraencrypted.realm")
+        configuration = new RealmConfiguration.Builder().name("realmencrypted.realm")
                                                         .encryptionKey(key)
                                                         .build();
     }
@@ -71,6 +71,7 @@ public class RealmEncryptedTester extends BaseOrmTester {
             realm.commitTransaction();
         }
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 
@@ -87,6 +88,7 @@ public class RealmEncryptedTester extends BaseOrmTester {
         realm.copyToRealm(data);
         realm.commitTransaction();
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 
@@ -99,13 +101,15 @@ public class RealmEncryptedTester extends BaseOrmTester {
         long time = System.currentTimeMillis();
 
         List<RealmBean> list = realm.where(RealmBean.class).findAll();
+        list.get(records - 1);
 
+        realm.close();
         return System.currentTimeMillis() - time;
     }
 
     @Override
     public String name() {
 
-        return "Realm";
+        return "Realm encrypted";
     }
 }

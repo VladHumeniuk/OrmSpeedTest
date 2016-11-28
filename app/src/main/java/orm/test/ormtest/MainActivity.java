@@ -54,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
         startActivityForTest(AbstractOrmTestFactory.REALM_ENCRYPTED);
     }
 
+    @OnClick(R.id.cipher)
+    public void cipher(View view){
+        startActivityForTest(AbstractOrmTestFactory.CIPHER);
+    }
+
 	private void startActivityForTest(int type) {
 		Intent intent = new Intent(this, TestActivity.class);
 		intent.putExtra(TestActivity.KEY_ORM, type);
