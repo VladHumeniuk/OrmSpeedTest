@@ -2,6 +2,8 @@
 * [Cupboard 2.1.4][2]
 * [Electra 1.0.0][3]
 * [DBFlow 3.0.1][4]
+* [Realm 2.2.0][5]
+* [SQLCipher 3.5.4][6]
 
 ###LG G3 856 (5.0.1) Results (ms, avg of 3)
 
@@ -16,5 +18,7 @@
 [2]: https://bitbucket.org/littlerobots/cupboard
 [3]: https://bitbucket.org/txdrive/electra
 [4]: https://github.com/Raizlabs/DBFlow
+[5]: https://realm.io/docs/java/2.2.0/
+[6]: https://www.zetetic.net/sqlcipher/sqlcipher-for-android/
 
 you can create pull request for new ORMs, or fixes or new results.
